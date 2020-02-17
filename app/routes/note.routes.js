@@ -2,6 +2,7 @@
 module.exports = (app) => {
     const notes = require('../controllers/note.controller.js');
     const auth = require('../controllers/auth.js');
+    const comment = require('../controllers/commentController.js');
     const multer = require('multer');
     const fileFilter = (req, file, cb) => {
         const allowedFile = ["image/png"];
@@ -37,7 +38,11 @@ module.exports = (app) => {
 
     app.post('/notes/searchMovie', notes.searchMovie);
 
-    app.use('/', auth.ensureToken)
+    app.post('/movie/comment', comment.SaveComments);
+
+    app.post('/movie/getComment', comment.loadingComment);
+
+    // app.use('/', auth.ensureToken)
 
     app.post('/notes',upload.single('file'), notes.create);
 
