@@ -28,6 +28,8 @@ module.exports = (app) => {
      
     app.get('/notes', notes.findAll);
 
+    app.get('/notes/dataplaylist', notes.findMovieForPlaylist);
+
     app.get('/notes/:noteId', notes.findOne);
 
     app.put('/notes/:noteId', notes.update);

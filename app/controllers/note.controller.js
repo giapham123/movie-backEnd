@@ -28,6 +28,12 @@ exports.findAll = async (req, res) => {
     res.send(a);
 };
 
+exports.findMovieForPlaylist = async (req, res) => {
+    var a = [];
+    a = await Note.find().limit(4);
+    res.send(a);
+};
+
 // Find a single note with a noteId
 exports.findOne = (req, res) => {
     Note.findById(req.params.noteId)
