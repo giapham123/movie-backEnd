@@ -39,6 +39,7 @@ app.get('/', (req, res) => {
 });
 
 require('./app/routes/note.routes.js')(app);
+require('./app/routes/routesActionMovie.js')(app);
 
 // listen for requests
 app.listen(3000, () => {

@@ -3,11 +3,10 @@ const mongoose = require('mongoose');
 const NoteSchema = mongoose.Schema({
     title: String,
     src: String,
-    thumbnails: String,
-    countUser: Number,
-    category: Number
+    episodes: Number,
+    idmovie: Object
 }, {
     timestamps: true
 });
 
-module.exports = mongoose.model('romantics', NoteSchema);
+module.exports = mongoose.model('seriesMovie', NoteSchema);

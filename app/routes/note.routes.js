@@ -3,6 +3,7 @@ module.exports = (app) => {
     const notes = require('../controllers/note.controller.js');
     const auth = require('../controllers/auth.js');
     const comment = require('../controllers/commentController.js');
+    const seriesMovie = require('../controllers/seriesMovieController.js');
     const multer = require('multer');
     const fileFilter = (req, file, cb) => {
         const allowedFile = ["image/png"];
@@ -30,12 +31,6 @@ module.exports = (app) => {
 
     app.get('/notes/dataplaylist', notes.findMovieForPlaylist);
 
-    app.get('/notes/:noteId', notes.findOne);
-
-    app.put('/notes/:noteId', notes.update);
-
-    app.delete('/notes/:noteId', notes.delete);
-
     app.post('/notes/count', notes.CountUserViews);
 
     app.post('/notes/searchMovie', notes.searchMovie);
@@ -47,5 +42,7 @@ module.exports = (app) => {
     // app.use('/', auth.ensureToken)
 
     app.post('/notes',upload.single('file'), notes.create);
+    app.post('/movie/series', seriesMovie.addSeriesMoive);
+    
 
 }
