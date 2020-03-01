@@ -4,4 +4,5 @@ module.exports = (app) => {
     app.get('/movie/animeMovie', movieAction.getAnimeMovie);
     app.get('/movie/romanticMovie', movieAction.getRomanticMovie);
     app.get('/movie/seriesMovie', movieAction.getSeriesMovie);
+    app.post('/movie/seriesMovieEpisode', movieAction.getSeriesMovieEpisode);
 }
